@@ -236,7 +236,6 @@ export class CategoryComponent implements OnInit, OnDestroy {
   }
 
   deleteData(Id: number) {
-    // debugger;
     let obj = {
       id: Id
     }
@@ -254,8 +253,6 @@ export class CategoryComponent implements OnInit, OnDestroy {
   getData() {
     this._http.get(environment.BASE_API_PATH + 'Category/GetAll').subscribe(res => {
       if (res.isSuccess) {
-        // this._toaster.success("Record Saved", "Category Master");
-        // debugger;
         this.objRows = res.data;
       } else {
         this._toaster.error(res.errors[0], 'Category Master')
@@ -292,7 +289,6 @@ export class CategoryComponent implements OnInit, OnDestroy {
 
     this.fileToUpload = files[0];
 
-    //read image
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = () => {
