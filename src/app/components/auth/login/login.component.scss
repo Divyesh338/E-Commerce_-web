@@ -1,0 +1,73 @@
+.page-wrapper {
+  min-height: 100vh;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.authentication-box {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 25px 20px;
+}
+
+.custom-tabs {
+  border-bottom: none !important;
+  justify-content: center;
+  gap: 10px;
+
+  .nav-link {
+    font-weight: 600;
+    padding: 12px 20px;
+    color: #6c757d;
+    border: none;
+    border-radius: 8px !important;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+
+    &.active {
+      background: #0d6efd;
+      color: #fff !important;
+      border-radius: 8px !important;
+    }
+  }
+}
+
+.tab-content-wrapper {
+  padding-top: 20px;
+}
+
+.auth-form {
+  .form-control {
+    height: 45px;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+
+  .form-group {
+    position: relative;
+  }
+
+  .error {
+    font-size: 12px;
+    color: #dc3545;
+    margin-top: 4px;
+  }
+}
+
+.btn-primary {
+  border-radius: 10px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+}
