@@ -67,11 +67,11 @@
                                 <!-- Action buttons -->
                                 <ngx-datatable-column name="Actions">
                                     <ng-template ngx-datatable-cell-template let-row="row">
-                                        <button class="btn-icon edit" (click)="edit(row.id)">
+                                        <button class="action-btn edit-btn" (click)="edit(row.id)">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
 
-                                        <button class="btn-icon delete" (click)="deleteData(row.id)">
+                                        <button class="action-btn delete-btn" (click)="deleteData(row.id)">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </ng-template>

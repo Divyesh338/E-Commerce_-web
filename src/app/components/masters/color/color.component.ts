@@ -108,8 +108,8 @@ export class ColorComponent implements OnInit, OnDestroy {
     const formData = new FormData();
     formData.append('id', this.addForm.value.id);
     formData.append('name', this.addForm.value.name);
-    formData.append('image', this.addForm.value.image);
-
+    formData.append('image', this.fileToUpload);
+    debugger;
     switch (this.dbOps) {
       case DbOperation.create:
         this._http.postImage(environment.BASE_API_PATH + 'BrandLogo/Save/', formData).subscribe(res => {
@@ -172,13 +172,11 @@ export class ColorComponent implements OnInit, OnDestroy {
   }
 
   deleteData(Id: number) {
-    // debugger;
     let obj = {
       id: Id
     }
     this._http.post(environment.BASE_API_PATH + 'BrandLogo/Delete/', obj).subscribe(res => {
       if (res.isSuccess) {
-        debugger;
         this._toaster.success("Record Deleted Successfully", "BrandLogo Master");
         this.getData();
       } else {
@@ -191,7 +189,6 @@ export class ColorComponent implements OnInit, OnDestroy {
     this._http.get(environment.BASE_API_PATH + 'ColorMaster/GetAll').subscribe(res => {
       if (res.isSuccess) {
         // this._toaster.success("Record Saved", "BrandLogo Master");
-        // debugger;
         this.objRows = res.data;
       } else {
         this._toaster.error(res.errors[0], 'BrandLogo Master')

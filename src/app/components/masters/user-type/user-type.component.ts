@@ -147,7 +147,6 @@ export class UserTypeComponent implements OnInit, OnDestroy {
     this._httpService.get(environment.BASE_API_PATH + "UserType/GetAll").subscribe(res => {
       if (res.isSuccess) {
         this.objRows = res.data;
-        debugger;
       } else {
         this._toastr.error(res.errors[0], "UserType Master");
       }
@@ -189,7 +188,6 @@ export class UserTypeComponent implements OnInit, OnDestroy {
       if (result.isConfirmed) {
         this._httpService.post(environment.BASE_API_PATH + "UserType/Delete/", obj).subscribe(res => {
           if (res.isSuccess) {
-            //this._toastr.success("Record Deleted !!", "UserType Master");
             swalWithBootstrapButtons.fire(
               'Deleted!',
               'Your record has been deleted.',

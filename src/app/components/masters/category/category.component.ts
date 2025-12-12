@@ -256,7 +256,6 @@ export class CategoryComponent implements OnInit, OnDestroy {
     this._http.get(environment.BASE_API_PATH + 'Category/GetAll').subscribe(res => {
       if (res.isSuccess) {
         this.objRows = res.data;
-        debugger;
       } else {
         this._toaster.error(res.errors[0], 'Category Master')
       }

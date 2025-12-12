@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from "src/app/shared/shared.module";
-import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
 import { CountToModule } from 'angular-count-to';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,8 @@ import { CountToModule } from 'angular-count-to';
     DashboardRoutingModule,
     AgGridModule,
     SharedModule,
-    CountToModule
-] 
+    CountToModule,
+    Ng2GoogleChartsModule
+]   
 })
 export class DashboardModule { }

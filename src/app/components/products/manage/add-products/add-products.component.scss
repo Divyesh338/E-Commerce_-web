@@ -1,0 +1,41 @@
+.product-adding {
+    .form-label {
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+
+    .form-control, .form-select, textarea {
+        border-radius: 8px;
+        padding: 0.5rem 0.75rem;
+        transition: all 0.3s ease;
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+    }
+
+    .qty-group {
+        .btn {
+            width: 40px;
+            font-size: 1.2rem;
+            transition: 0.2s;
+            &:hover {
+                background-color: #e9ecef;
+            }
+        }
+
+        .form-control {
+            text-align: center;
+            font-weight: 600;
+        }
+    }
+
+    .form-check-input {
+        cursor: pointer;
+    }
+
+    .btn {
+        border-radius: 8px;
+        padding: 0.5rem 1.25rem;
+    }
+}

@@ -86,7 +86,6 @@ export class AddUsersComponent {
 
   register() {
     this.submitted = true;
-    debugger;
     switch (this.dbOps) {
       case DbOperation.create:
         this._http.postImage(environment.BASE_API_PATH + 'UserMaster/Save/', this.addUserForm.value).subscribe(res => {

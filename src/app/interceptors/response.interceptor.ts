@@ -19,10 +19,8 @@ export class ResponseInterceptor implements HttpInterceptor {
       retry(3),
       map(res => {
         if (res instanceof HttpResponse) {
-          debugger;
           return res;
         }
-        debugger;
         return res;
       }),
       catchError((err: HttpErrorResponse) => {

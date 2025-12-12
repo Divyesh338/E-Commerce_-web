@@ -24,8 +24,12 @@ export class SideBarComponent {
     this.email = `${userDetails.email}`;
     this.userImage = ((userDetails.imagePath == "" || userDetails.imagePath == null) ? "assets/images/user.webp" : Global.BASE_USERS_IMAGES_PATH + userDetails.imagePath);
     this.menuItems = this._menuService.MENUITEMS
-  }
 
+     Global.profileImage$.subscribe(newImg => {
+    this.userImage = newImg;
+  });
+  }
+   
   toToggleNavActive(menuItem: Menu) {
     menuItem.active = !menuItem.active;
   }
