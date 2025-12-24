@@ -12,8 +12,8 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-Category',
-  templateUrl: './Category.component.html',
-  styleUrls: ['./Category.component.scss']
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit, OnDestroy {
   addForm!: FormGroup;
