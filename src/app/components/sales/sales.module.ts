@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { SalesRoutingModule } from './sales-routing.module';
 import { OrdersComponent } from './orders/orders.component';
 import { TransactionsComponent } from './transactions/transactions.component';
-import { Ng2GoogleChartsModule } from 'ng2-google-charts';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AgGridModule } from 'ag-grid-angular';
 
 
@@ -17,7 +15,7 @@ import { AgGridModule } from 'ag-grid-angular';
   imports: [
     CommonModule,
     SalesRoutingModule,
-    AgGridModule
+    AgGridModule,
   ]
 })
 export class SalesModule { }

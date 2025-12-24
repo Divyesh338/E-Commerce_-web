@@ -7,6 +7,11 @@ import { FeatherIconComponent } from './components/feather-icon/feather-icon.com
 import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { RouterModule } from '@angular/router';
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { CountToModule } from 'angular-count-to';
+import { AgGridModule } from 'ag-grid-angular';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +25,19 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
+    AgGridModule,
+    CountToModule,
+    Ng2GoogleChartsModule,
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   exports: [
-    FeatherIconComponent
-  ]
+    FeatherIconComponent,
+    AgGridModule,
+    CountToModule,
+    Ng2GoogleChartsModule,
+    ToastrModule,
+    HttpClientModule
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

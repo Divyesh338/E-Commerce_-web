@@ -1,34 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthModule } from './components/auth/auth.module';
-import { SharedModule } from './shared/shared.module';
 import { RequestInterceptor } from './interceptors/request.interceptor';
-import { CKEditorModule } from 'ckeditor4-angular';
+import { ToastrModule } from 'ngx-toastr';
+import { AuthModule } from './components/auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    NgbNavModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    SharedModule,
-    AuthModule,
-    CKEditorModule
+    AuthModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: RequestInterceptor,
-      multi: true
+      multi: true,
     },
     // {
     //   provide: HTTP_INTERCEPTORS,
@@ -38,4 +30,4 @@ import { CKEditorModule } from 'ckeditor4-angular';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

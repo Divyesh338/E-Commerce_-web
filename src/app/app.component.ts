@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +7,4 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AppComponent {
   title = 'Alibaba-Pro';
-
-  /**
-   *
-   */
-  constructor(private _toaster: ToastrService) {
-
-  }
-
-  ngOnInit() {
-    // this._toaster.error("fasfs","asfsdaf");
-  }
 }
