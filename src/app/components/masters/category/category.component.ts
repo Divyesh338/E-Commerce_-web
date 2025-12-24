@@ -73,6 +73,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.setFromState();
     this.getData();
+    console.log(this.addForm);
   }
 
   setFromState() {
@@ -85,7 +86,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
         [
           Validators.required,
           Validators.minLength(1),
-          Validators.maxLength(10),
+          Validators.maxLength(19),
           CharFieldValidator.validCharfield,
           NoWhiteSpaceValidators.NoWhiteSpace,
         ],
@@ -96,7 +97,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
         [
           Validators.required,
           Validators.minLength(3),
-          Validators.maxLength(10),
+          Validators.maxLength(17),
           CharFieldValidator.validCharfield,
           NoWhiteSpaceValidators.NoWhiteSpace,
         ],
@@ -151,6 +152,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
   }
 
   Submit() {
+    console.log(this.addForm);
     if (this.addForm.invalid) {
       return;
     }
@@ -256,7 +258,6 @@ export class CategoryComponent implements OnInit, OnDestroy {
     this._http.get(environment.BASE_API_PATH + 'Category/GetAll').subscribe(res => {
       if (res.isSuccess) {
         this.objRows = res.data;
-        debugger;
       } else {
         this._toaster.error(res.errors[0], 'Category Master')
       }

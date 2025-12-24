@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { HttpService } from 'src/app/shared/services/http.service';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 
@@ -29,6 +28,10 @@ export class DashboardComponent {
     CashOnDelivery: 0,
     Cancelled: 0,
   };
+
+  orders = [];
+
+  orderStatusChart: any;
 
   stats: { title: string; key: keyof Count; bg: string; icon: string; iconClass: string }[] = [
     { title: "Orders", key: "Orders", bg: "bg-warning", icon: "navigation", iconClass: "font-secondary" },
@@ -102,6 +105,8 @@ export class DashboardComponent {
 
   ngOnInit() {
     this.getNetFigure();
+    this.getOrdersData();
+    this.GetOrderStatusChart();
   }
 
   getNetFigure() {
@@ -126,7 +131,6 @@ export class DashboardComponent {
     this._http.get(environment.BASE_API_PATH + 'PaymentMaster/GetReportManageOrder')
       .subscribe((res: any) => {
         if (res.isSuccess) {
-          debugger;
           this.rowData = res.data;
         } else {
           this._toaster.error(res.errors?.[0] || 'Error fetching orders', 'Dashboard');
@@ -138,7 +142,103 @@ export class DashboardComponent {
     console.log('Cell clicked', e);
   }
 
-  clearSelection(): void {
-    this.agGrid.api.deselectAll();
+  getOrdersData() {
+    this._http.get(environment.BASE_API_PATH + "PaymentMaster/GetReportManageOrder").subscribe(res => {
+      if (res.isSuccess) {
+        this.orders = res.data;
+      } else {
+        this._toaster.error(res.errors[0], "Dashboard");
+      }
+    });
+  }
+
+  GetOrderStatusChart() {
+    let objOrderStatusData:any[] = [];
+    let arr = ["Date"];
+
+    this._http.get(environment.BASE_API_PATH + "PaymentMaster/GetChartOrderStatus").subscribe(res => {
+      if (res.isSuccess) {
+
+        // counts : 5 date: "02-08-2022" orderStatus: "Processing"
+        let allData = res.data;
+        let allDates = allData.map((item: any) => item.date).filter((value: any, index: any, self: string | any[]) => self.indexOf(value) === index);
+        let allOrderStatus = allData.map((item: any) => item.orderStatus).filter((value: any, index: any, self: string | any[]) => self.indexOf(value) === index);
+
+        for (let status of allOrderStatus) {
+          arr.push(status);
+        }
+        objOrderStatusData.push(arr);
+
+        var setZero: any = 0;
+        for (let date of allDates) {
+          arr = [];
+          arr.push(date);
+
+          for (let status of allOrderStatus) {
+            arr.push(setZero);
+          }
+
+
+          for (let i in allOrderStatus) {
+            for (let index in allData) {
+              if (allOrderStatus[i] === allData[index].orderStatus && date === allData[index].date) {
+                arr[parseInt(i) + 1] = allData[index].counts;
+              }
+            }
+          }
+
+          objOrderStatusData.push(arr);
+        }
+
+
+        //google-chart - ColumnChart
+        this.orderStatusChart = {
+          chartType: 'ColumnChart',
+          dataTable: objOrderStatusData,
+          options: {
+            legend: { position: 'none' },
+            bars: "vertical",
+            vAxis: {
+              format: "decimal"
+            },
+            height: 340,
+            width: '100%',
+            colors: ["#ff7f83", "#a5a5a5"],
+            backgroundColor: 'transparent'
+          },
+        };
+
+
+
+      } else {
+        this._toaster.error(res.errors[0], "Dashboard");
+      }
+    });
+    // //google-chart - ColumnChart
+    // this.orderStatusChart = {
+    //   chartType: 'ColumnChart',
+    //   dataTable: [
+    //     ["Year", "Sales", "Expenses"],
+    //     ["100", 2.5, 3.8],
+    //     ["200", 3, 1.8],
+    //     ["300", 3, 4.3],
+    //     ["400", 0.9, 2.3],
+    //     ["500", 1.3, 3.6],
+    //     ["600", 1.8, 2.8],
+    //     ["700", 3.8, 2.8],
+    //     ["800", 1.5, 2.8]
+    //   ],
+    //   options: {
+    //     legend: { position: 'none' },
+    //     bars: "vertical",
+    //     vAxis: {
+    //       format: "decimal"
+    //     },
+    //     height: 340,
+    //     width: '100%',
+    //     colors: ["#ff7f83", "#a5a5a5"],
+    //     backgroundColor: 'transparent'
+    //   },
+    // };
   }
 }

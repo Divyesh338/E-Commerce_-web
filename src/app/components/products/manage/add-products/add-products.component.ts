@@ -24,7 +24,7 @@ export class AddProductsComponent implements OnInit, OnDestroy {
   objTags: any[] = [];
   objCategories: any[] = [];
 
-  bigImage = "assets/images/product-noimage.jpg";
+  bigImage = "assets/images/noimage.png";
   images = [
     { img: "assets/images/noimage.png" },
     { img: "assets/images/noimage.png" },

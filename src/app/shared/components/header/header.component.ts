@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CollaspeService } from '../../services/collaspe.service';
+import { Global } from '../../utility/global';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,8 @@ export class HeaderComponent {
 
   ngOnInit(): void {
     let userDetails = JSON.parse(localStorage.getItem('userDetails') || '{}');
-    // this.userImage = (userDetails.imagePath == "" || userDetails.imagePath == null) ? "assets/images/user.png" :
-    //   Global.BASE_USERS_IMAGES_PATH + userDetails.imagePath;
+    this.userImage = (userDetails.imagePath == "" || userDetails.imagePath == null) ? "assets/images/user.png" :
+      Global.BASE_USERS_IMAGES_PATH + userDetails.imagePath;
   }
 
   collaspeSidebar() {

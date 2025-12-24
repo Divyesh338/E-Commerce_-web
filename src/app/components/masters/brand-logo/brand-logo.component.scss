@@ -22,6 +22,10 @@
   }
 }
 
+.card-header {
+    padding: 15px 20px;
+}
+
 /* Preview Image */
 .imagewidth {
   width: 100px;
@@ -70,11 +74,6 @@
     .datatable-row-wrapper {
       border-bottom: 1px solid #f1f1f1;
     }
-
-    // img.imagewidth {
-    //   width: 70px;
-    //   height: 70px;
-    // }
   }
 }
 
