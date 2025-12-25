@@ -18,9 +18,6 @@ It focuses on **dynamic component rendering**: UI pages/forms/components are gen
 - [Testing](#testing)
 - [Dynamic component rendering — how it works](#dynamic-component-rendering---how-it-works)
   - [Config example (JSON)](#config-example-json)
-  - [Dynamic component registry (example)](#dynamic-component-registry-example)
-  - [Dynamic loader service (example)](#dynamic-loader-service-example)
-  - [Usage in a page component (example)](#usage-in-a-page-component-example)
 - [Modules & features](#modules--features)
 - [Styling & Theming](#styling--theming)
 - [Deployment](#deployment)
@@ -119,6 +116,7 @@ src/app/
 --- 
 
  ## dynamic-component-rendering---how-it-works
+ ```text
   - AlibabaPro uses configuration-driven rendering at the routing and navigation level.
 
   - Menu / Route config
@@ -129,10 +127,12 @@ src/app/
         ↓
   - Feature components render dynamically
 
+```
 ---
 
   ## config-example-json
 
+```text
   - MENUITEMS = [
     {
       title: 'Products',
@@ -159,6 +159,7 @@ src/app/
     }
   ];
 
+```
   # Dynamic behavior is currently achieved through:
     - Angular routing
     - Lazy-loaded feature modules
