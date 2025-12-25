@@ -31,29 +31,31 @@ It focuses on **dynamic component rendering**: UI pages/forms/components are gen
 
 ## Features
 
-- Config-driven sidebar navigation with multi-level menus
-- Lazy-loaded Angular feature modules
-- Centralized layout (Header, Sidebar, Breadcrumb, Footer)
-- Modular architecture for large admin systems
-- REST API integration (.NET backend)
-- Responsive UI using Bootstrap 5
-- Reusable shared components
-- HTTP interceptors for request/response handling
-- Easily extendable admin features
+- Config-driven sidebar navigation with multi-level menus  
+- Lazy-loaded Angular feature modules  
+- Centralized layout (Header, Sidebar, Breadcrumb, Footer)  
+- Modular architecture for large admin systems  
+- REST API integration (.NET backend)  
+- Responsive UI using Bootstrap 5  
+- Reusable shared components  
+- HTTP interceptors for request/response handling  
+- Easily extendable admin features  
+
 ---
 
 ## Tech stack
 
-- Angular: 15
-- TypeScript
-- RxJS
-- SCSS + Bootstrap 5
-- Angular Router (lazy loading)
-- ng-bootstrap
-- ag-Grid / ngx-datatable
-- SweetAlert2, ngx-toastr
-- CKEditor 4
-- Feather Icons & FontAwesome
+- **Angular:** 15  
+- **TypeScript**  
+- **RxJS**  
+- **SCSS + Bootstrap 5**  
+- **Angular Router** (lazy-loaded modules)  
+- **ng-bootstrap**  
+- **ag-Grid / ngx-datatable**  
+- **SweetAlert2, ngx-toastr**  
+- **CKEditor 4**  
+- **Feather Icons & FontAwesome**  
+
 ---
 
 ## Project structure
@@ -69,11 +71,9 @@ src/app/
 │   ├── reports/
 │   ├── invoice/
 │   └── settings/
-│
 ├── interceptors/
 │   ├── request/
 │   └── response/
-│
 ├── shared/
 │   ├── components/
 │   │   ├── header/
@@ -86,6 +86,8 @@ src/app/
 │   ├── services/
 │   ├── utility/
 │   └── validations/
+
+---
 
 ## run-development
  # Requirements
@@ -113,6 +115,8 @@ src/app/
  - Initial bundle size exceeds default Angular budget
  - These warnings do not block production builds.
 
+--- 
+
  ## dynamic-component-rendering---how-it-works
   - AlibabaPro uses configuration-driven rendering at the routing and navigation level.
 
@@ -124,6 +128,7 @@ src/app/
         ↓
   - Feature components render dynamically
 
+---
 
   ## config-example-json
 
@@ -158,3 +163,29 @@ src/app/
     - Lazy-loaded feature modules
     - Config-driven navigation
 
+## Modules & features
+- Dashboard
+- Products Management
+- Sales (Orders & Transactions)
+- Masters (Category, Brand, Size, Color, Tag)
+- Users Management
+- Reports
+- Invoice
+- Settings (Profile)
+
+---
+
+## Styling & Theming
+  - SCSS-based styling
+  - Bootstrap 5 grid & utilities
+  - Reusable layout components
+  - Fully responsive admin layo
+
+---
+
+## Deployment
+ - Platform: Netlify
+ - Angular app deployed as static files
+ - Backend (.NET API) hosted separately
+
+---
